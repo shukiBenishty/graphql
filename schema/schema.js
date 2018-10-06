@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server-express');
 export let typeDefs = gql`
   type Book{
     id: ID!
@@ -24,5 +24,9 @@ export let typeDefs = gql`
     authors: [Author]
   }
 
+  type Mutation {
+    addBook(name: String!, genre: String!, authorId: ID!): Book
+    addAuthor(name: String!, age: Int!): Author
+  }
 
 `;
